@@ -55,7 +55,13 @@ def search_and_extract_data_from_bank_tweets(search_list):
         # add the results to a json object
         for i in search_list:
             print("Searching twitter for",i)
-            for tweet in tweepy.Cursor(twitter_api.search, q=i, since=start_date).items():
+            for tweet in tweepy.Cursor(twitter_api.search, q=i,
+                                        since=start_date,
+                                        monitor_rate_limit = True,
+                                        wait_on_rate_limit = True,
+                                        retry_count = 5,
+                                        retry_delay = 5,
+                                       geocode = "-1.285796,36.825658,2000km").items():
                 f.write(jsonpickle.encode(tweet._json, unpicklable=False) +
                         '\n')
                 total_results += 1
