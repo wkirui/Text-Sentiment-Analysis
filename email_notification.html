@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>{% block title %}{% endblock %} Text Sentiment Analysis Email Notification</title>
+    {% endblock %}
+</head>
+
+<body>
+    <div id="content">{% block content %}
+        <p> Twitter Search and Processing Completed Successfully!<br>
+            Here are the top tweets:
+        </p>
+
+
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>
