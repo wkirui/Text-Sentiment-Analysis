@@ -14,10 +14,10 @@ msg = MIMEMultipart()
 msg['From'] = mail_sender
 msg['To'] = mail_recipient
 msg['Subject'] = 'Text Sentiment Analysis Report'
-message = 'Here are the final results from the analysis'
+message = 'Here are the final results from the analysis\n'
 
 # create html message
-html_message = """\
+html_message = """\n
     <html>
         <head></head>
         <body>
@@ -27,8 +27,9 @@ html_message = """\
 """.format(top_20_comment_results.to_html)
 # attach message
 msg.attach(MIMEText(message))
-msg.attach(MIMEText(html_message))
+msg.attach(MIMEText(html_message,'html'))
 
+# print(msg.as_string())
 mailserver = smtplib.SMTP(host='smtp.gmail.com',port=587)
 
 mailserver.ehlo()
