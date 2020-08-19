@@ -111,7 +111,10 @@ def filter_and_tokenize_tweets_by_bank(bank_names_list):
     
     # sort main dataframe by word frequency
     combined_bank_comments_df = combined_bank_comments_df.sort_values(by='freq',ascending=False)
-    print(combined_bank_comments_df[combined_bank_comments_df['bank_name']!=""][0:20]) # show top words
+    # print(combined_bank_comments_df[combined_bank_comments_df['bank_name']!=""][0:20]) # show top words
+    return combined_bank_comments_df
 
 # apply function on banks
-filter_and_tokenize_tweets_by_bank(bank_names)
+final_bank_comments_df = filter_and_tokenize_tweets_by_bank(bank_names)
+top_20_comment_results  = final_bank_comments_df[final_bank_comments_df['bank_name']!=""][0:20]
+print(top_20_comment_results) # show results
