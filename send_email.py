@@ -17,7 +17,7 @@ msg['Subject'] = 'Text Sentiment Analysis Report'
 message = 'Here are the final results from the analysis\n'
 
 # create html message
-html_message = """\n
+html_message = """\
     <html>
         <head></head>
         <body>
