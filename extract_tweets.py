@@ -30,9 +30,9 @@ print("Authorization successful!")
 filename = "tweets.txt"
 
 # create list of top banks
-# banks_list = ["KCB Bank", "Equity Bank", "Cooperative Bank", "Family Bank", "Faulu Bank",
-#               "DTB Bank", "Barclays Bank", "Standard Chartered Bank", "National Bank", "NCBA Bank"]
-banks_list = ["KCB Bank"]
+banks_list = ["KCB Bank", "Equity Bank", "Cooperative Bank", "Family Bank", "Faulu Bank",
+              "DTB Bank", "Barclays Bank", "Standard Chartered Bank", "National Bank", "NCBA Bank"]
+# banks_list = ["KCB Bank"]
 
 # define start date
 start_date = "2020-01-01"
@@ -61,7 +61,7 @@ def search_and_extract_data_from_bank_tweets(search_list):
                                         wait_on_rate_limit = True,
                                         retry_count = 5,
                                         retry_delay = 5,
-                                       geocode = "-1.285796,36.825658,2000km").items(1000):
+                                       geocode = "-1.285796,36.825658,2000km").items():
                 f.write(jsonpickle.encode(tweet._json, unpicklable=False) +
                         '\n')
                 total_results += 1
